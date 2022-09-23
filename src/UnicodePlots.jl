@@ -2,7 +2,6 @@ module UnicodePlots
 
 using SnoopPrecompile
 using LinearAlgebra
-using StaticArrays
 using LazyModules
 using ColorTypes
 using Crayons

@@ -135,7 +135,8 @@ end
     )
         m, n = size(X)
         col_cb = h -> callback(h, mh, Mh)
-        buf = MMatrix{4,2,F}(undef)
+        buf = Matrix{F}(undef, 4, 2)
+        mat = ones(F, 4, 2)
         incs = (0, 0, 1, 0), (0, 0, 0, 1), (0, 0, 1, 1), (1, 0, 0, 1)
         @inbounds for j ∈ axes(X, 2), i ∈ axes(X, 1)
             for inc ∈ incs
@@ -143,17 +144,13 @@ end
                 (j1 = j + inc[2]) > n && continue
                 (i2 = i + inc[3]) > m && continue
                 (j2 = j + inc[4]) > n && continue
-                plot.projection(
-                    buf,
-                    @SMatrix(
-                        [
-                            X[i1, j1] X[i2, j2]
-                            Y[i1, j1] Y[i2, j2]
-                            Z[i1, j1] Z[i2, j2]
-                            1 1
-                        ]
-                    )
-                )
+                mat[1, 1] = X[i1, j1]
+                mat[1, 2] = X[i2, j2]
+                mat[2, 1] = Y[i1, j1]
+                mat[2, 2] = Y[i2, j2]
+                mat[3, 1] = Z[i1, j1]
+                mat[3, 2] = Z[i2, j2]
+                plot.projection(buf, mat)
                 lines!(
                     plot.graphics,
                     buf[1, 1],
