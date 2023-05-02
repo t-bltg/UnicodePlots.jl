@@ -34,15 +34,9 @@ NaNMath = "0.3, 1"
 Requires = "1"
 SnoopPrecompile = "1"
 StaticArrays = "1"
-StatsBase = "0.33"
+StatsBase = "0.33, 0.34"
 Unitful = "1"
 julia = "1.6"
-
-[weakdeps]
-FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
-FreeType = "b38be410-82b0-50bf-ab77-7b57e271db43"
-ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
-Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [extensions]
 FreeTypeExt = ["FileIO", "FreeType"]
@@ -66,3 +60,9 @@ Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [targets]
 test = ["Aqua", "DataFrames", "FileIO", "FreeType", "ImageInTerminal", "ImageMagick", "Random", "ReferenceTests", "StableRNGs", "Test", "TestImages", "TimerOutputs", "Unitful"]
+
+[weakdeps]
+FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
+FreeType = "b38be410-82b0-50bf-ab77-7b57e271db43"
+ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
